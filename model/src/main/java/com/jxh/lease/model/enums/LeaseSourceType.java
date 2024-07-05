@@ -3,7 +3,6 @@ package com.jxh.lease.model.enums;
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-
 public enum LeaseSourceType implements BaseEnum {
 
     NEW(1, "新签"),

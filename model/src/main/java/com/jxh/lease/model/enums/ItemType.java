@@ -3,7 +3,6 @@ package com.jxh.lease.model.enums;
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-
 public enum ItemType implements BaseEnum {
 
     APARTMENT(1, "公寓"),
