@@ -34,7 +34,6 @@ public class Result<T> {
         return result;
     }
 
-
     public static <T> Result<T> ok(T data) {
         return build(data, ResultCodeEnum.SUCCESS);
     }

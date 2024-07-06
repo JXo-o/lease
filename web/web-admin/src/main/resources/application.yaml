@@ -15,3 +15,9 @@ mybatis-plus:
     auto-mapping-behavior: full
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+minio:
+  endpoint: http://101.35.211.252:9000
+  access-key: JXX
+  secret-key: JX@010208
+  bucket-name: lease

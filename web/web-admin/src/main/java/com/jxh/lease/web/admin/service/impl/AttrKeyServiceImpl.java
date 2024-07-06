@@ -1,6 +1,7 @@
 package com.jxh.lease.web.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.jxh.lease.model.entity.AttrKey;
 import com.jxh.lease.model.entity.AttrValue;
 import com.jxh.lease.web.admin.mapper.AttrKeyMapper;
@@ -31,6 +32,13 @@ public class AttrKeyServiceImpl extends ServiceImpl<AttrKeyMapper, AttrKey>
         return attrKeyMapper.listAttrInfo();
     }
 
+
+    /**
+     * 根据属性名称Id删除属性名称以及对应属性值
+     * 注：使用mapper.delete()进行删除时，不会进行字段填充
+     * 因为没有传入实体，mybatis-plus的字段填充依赖实体信息
+     * @param attrKeyId 属性名称Id
+     */
     @Override
     @Transactional
     public void removeAttrKeyById(Long attrKeyId) {
