@@ -11,6 +11,9 @@ import java.io.Serial;
 @Schema(description = "图片信息表")
 @TableName(value = "graph_info")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class GraphInfo extends BaseEntity {
 
     @Serial

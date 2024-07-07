@@ -13,12 +13,12 @@ import java.io.Serial;
 /**
  * @TableName room_lease_term
  */
+@Schema(description = "房间租期关系表")
 @TableName(value = "room_lease_term")
 @Data
-@Schema(description = "房间租期关系表")
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class RoomLeaseTerm extends BaseEntity {
 
     @Serial

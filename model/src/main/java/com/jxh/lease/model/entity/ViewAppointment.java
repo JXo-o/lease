@@ -4,7 +4,10 @@ import com.jxh.lease.model.enums.AppointmentStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.util.Date;
@@ -12,6 +15,9 @@ import java.util.Date;
 @Schema(description = "预约看房信息表")
 @TableName(value = "view_appointment")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ViewAppointment extends BaseEntity {
 
     @Serial

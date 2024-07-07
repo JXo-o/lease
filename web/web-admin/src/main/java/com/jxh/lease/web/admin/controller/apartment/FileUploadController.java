@@ -25,12 +25,8 @@ public class FileUploadController {
 
     @Operation(summary = "上传文件")
     @PostMapping("upload")
-    public Result<String> upload(@RequestParam MultipartFile file) {
-        try {
-            return Result.ok(fileService.upload(file));
-        } catch (Exception e) {
-            return Result.fail();
-        }
+    public Result<String> upload(@RequestParam MultipartFile file) throws Exception {
+        return Result.ok(fileService.upload(file));
     }
 
 }

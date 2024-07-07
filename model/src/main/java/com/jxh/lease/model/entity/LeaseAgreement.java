@@ -6,7 +6,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.math.BigDecimal;
@@ -15,6 +18,9 @@ import java.util.Date;
 @Schema(description = "租约信息表")
 @TableName(value = "lease_agreement")
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class LeaseAgreement extends BaseEntity {
 
     @Serial

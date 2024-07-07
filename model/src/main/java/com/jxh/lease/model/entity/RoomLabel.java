@@ -3,8 +3,10 @@ package com.jxh.lease.model.entity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 
@@ -12,6 +14,8 @@ import java.io.Serial;
 @TableName(value = "room_label")
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoomLabel extends BaseEntity {
 
     @Serial

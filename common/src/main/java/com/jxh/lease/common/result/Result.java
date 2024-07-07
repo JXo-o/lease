@@ -2,6 +2,9 @@ package com.jxh.lease.common.result;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 全局统一返回结果类
  */
@@ -45,4 +48,12 @@ public class Result<T> {
     public static <T> Result<T> fail() {
         return build(null, ResultCodeEnum.FAIL);
     }
+
+    public static <T> Result<T> fail(Integer code, String message) {
+        Result<T> result = build(null);
+        result.setCode(code);
+        result.setMessage(message);
+        return result;
+    }
+
 }

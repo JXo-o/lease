@@ -3,16 +3,22 @@ package com.jxh.lease.model.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 
 /**
  * @TableName lease_term
  */
+@Schema(description = "租期信息")
 @TableName(value = "lease_term")
 @Data
-@Schema(description = "租期信息")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class LeaseTerm extends BaseEntity {
 
     @Serial

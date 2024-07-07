@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class AttrKeyServiceImpl extends ServiceImpl<AttrKeyMapper, AttrKey>
-    implements AttrKeyService{
+        implements AttrKeyService{
 
     private final AttrKeyMapper attrKeyMapper;
     private final AttrValueMapper attrValueMapper;

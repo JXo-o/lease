@@ -21,3 +21,6 @@ minio:
   access-key: JXX
   secret-key: JX@010208
   bucket-name: lease
+
+springdoc:
+  default-flat-param-object: true
