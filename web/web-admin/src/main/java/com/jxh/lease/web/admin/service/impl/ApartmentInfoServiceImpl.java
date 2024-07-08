@@ -138,18 +138,12 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
     @Override
     public ApartmentDetailVo getDetailById(Long id) {
 
-        ApartmentInfo apartmentInfo = apartmentInfoMapper.selectById(id);
-        List<GraphVo> graphVoList = graphInfoMapper.selectListByItemTypeAndId(ItemType.APARTMENT, id);
-        List<LabelInfo> labelInfoList = labelInfoMapper.selectListByApartmentId(id);
-        List<FacilityInfo> facilityInfoList = facilityInfoMapper.selectListByApartmentId(id);
-        List<FeeValueVo> feeValueVoList = feeValueMapper.selectListByApartmentId(id);
-
         ApartmentDetailVo apartmentDetailVo = new ApartmentDetailVo();
-        BeanUtils.copyProperties(apartmentInfo, apartmentDetailVo);
-        apartmentDetailVo.setGraphVoList(graphVoList);
-        apartmentDetailVo.setLabelInfoList(labelInfoList);
-        apartmentDetailVo.setFacilityInfoList(facilityInfoList);
-        apartmentDetailVo.setFeeValueVoList(feeValueVoList);
+        BeanUtils.copyProperties(apartmentInfoMapper.selectById(id), apartmentDetailVo);
+        apartmentDetailVo.setGraphVoList(graphInfoMapper.selectListByItemTypeAndId(ItemType.APARTMENT, id));
+        apartmentDetailVo.setLabelInfoList(labelInfoMapper.selectListByApartmentId(id));
+        apartmentDetailVo.setFacilityInfoList(facilityInfoMapper.selectListByApartmentId(id));
+        apartmentDetailVo.setFeeValueVoList(feeValueMapper.selectListByApartmentId(id));
 
         return apartmentDetailVo;
 

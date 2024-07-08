@@ -9,6 +9,8 @@ spring:
       url: jdbc:mysql://101.35.211.252:3306/lease
       username: root
       password: JX@010208
+  jackson:
+    time-zone: GMT+8
 
 mybatis-plus:
   configuration:
