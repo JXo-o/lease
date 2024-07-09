@@ -11,7 +11,3 @@ public class RoomFacilityServiceImpl extends ServiceImpl<RoomFacilityMapper, Roo
     implements RoomFacilityService{
 
 }
-
-
-
-

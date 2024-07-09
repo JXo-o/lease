@@ -11,7 +11,3 @@ public class RoomLabelServiceImpl extends ServiceImpl<RoomLabelMapper, RoomLabel
     implements RoomLabelService{
 
 }
-
-
-
-

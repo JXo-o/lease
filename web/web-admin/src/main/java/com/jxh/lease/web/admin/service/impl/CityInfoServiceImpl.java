@@ -11,7 +11,3 @@ public class CityInfoServiceImpl extends ServiceImpl<CityInfoMapper, CityInfo>
     implements CityInfoService{
 
 }
-
-
-
-

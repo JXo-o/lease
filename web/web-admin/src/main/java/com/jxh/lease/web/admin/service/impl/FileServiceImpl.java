@@ -3,14 +3,10 @@ package com.jxh.lease.web.admin.service.impl;
 import com.jxh.lease.common.minio.MinioProperties;
 import com.jxh.lease.web.admin.service.FileService;
 import io.minio.*;
-import io.minio.errors.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;

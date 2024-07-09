@@ -11,7 +11,3 @@ public class BrowsingHistoryServiceImpl extends ServiceImpl<BrowsingHistoryMappe
     implements BrowsingHistoryService{
 
 }
-
-
-
-

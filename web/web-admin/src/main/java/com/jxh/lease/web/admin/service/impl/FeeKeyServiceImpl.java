@@ -1,14 +1,12 @@
 package com.jxh.lease.web.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.jxh.lease.model.entity.AttrValue;
 import com.jxh.lease.model.entity.FeeKey;
 import com.jxh.lease.model.entity.FeeValue;
 import com.jxh.lease.web.admin.mapper.FeeKeyMapper;
 import com.jxh.lease.web.admin.mapper.FeeValueMapper;
 import com.jxh.lease.web.admin.service.FeeKeyService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jxh.lease.web.admin.service.FeeValueService;
 import com.jxh.lease.web.admin.vo.fee.FeeKeyVo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,7 +47,3 @@ public class FeeKeyServiceImpl extends ServiceImpl<FeeKeyMapper, FeeKey>
         feeValueMapper.deleteByIds(idList);
     }
 }
-
-
-
-

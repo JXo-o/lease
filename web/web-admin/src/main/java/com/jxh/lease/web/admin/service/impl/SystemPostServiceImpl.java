@@ -11,7 +11,3 @@ public class SystemPostServiceImpl extends ServiceImpl<SystemPostMapper, SystemP
     implements SystemPostService{
 
 }
-
-
-
-

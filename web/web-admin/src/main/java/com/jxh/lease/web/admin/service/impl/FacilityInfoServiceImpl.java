@@ -11,7 +11,3 @@ public class FacilityInfoServiceImpl extends ServiceImpl<FacilityInfoMapper, Fac
     implements FacilityInfoService{
 
 }
-
-
-
-

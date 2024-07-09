@@ -1,17 +1,13 @@
 package com.jxh.lease.web.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.jxh.lease.model.entity.ApartmentInfo;
 import com.jxh.lease.model.entity.LeaseAgreement;
-import com.jxh.lease.model.entity.LeaseTerm;
-import com.jxh.lease.model.entity.RoomInfo;
 import com.jxh.lease.web.admin.mapper.*;
 import com.jxh.lease.web.admin.service.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jxh.lease.web.admin.vo.agreement.AgreementQueryVo;
 import com.jxh.lease.web.admin.vo.agreement.AgreementVo;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -56,7 +52,3 @@ public class LeaseAgreementServiceImpl extends ServiceImpl<LeaseAgreementMapper,
         return leaseAgreementMapper.pageAgreementByQuery(page, queryVo);
     }
 }
-
-
-
-

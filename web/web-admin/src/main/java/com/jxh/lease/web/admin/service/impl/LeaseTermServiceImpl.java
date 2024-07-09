@@ -11,7 +11,3 @@ public class LeaseTermServiceImpl extends ServiceImpl<LeaseTermMapper, LeaseTerm
     implements LeaseTermService{
 
 }
-
-
-
-

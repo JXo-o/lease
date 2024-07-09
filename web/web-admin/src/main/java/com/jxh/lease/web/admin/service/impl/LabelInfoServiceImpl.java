@@ -11,7 +11,3 @@ public class LabelInfoServiceImpl extends ServiceImpl<LabelInfoMapper, LabelInfo
     implements LabelInfoService{
 
 }
-
-
-
-

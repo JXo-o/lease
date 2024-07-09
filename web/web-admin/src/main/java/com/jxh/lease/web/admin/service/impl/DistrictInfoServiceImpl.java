@@ -11,7 +11,3 @@ public class DistrictInfoServiceImpl extends ServiceImpl<DistrictInfoMapper, Dis
     implements DistrictInfoService{
 
 }
-
-
-
-

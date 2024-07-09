@@ -11,7 +11,3 @@ public class ApartmentFeeValueServiceImpl extends ServiceImpl<ApartmentFeeValueM
     implements ApartmentFeeValueService{
 
 }
-
-
-
-

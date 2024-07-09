@@ -11,7 +11,3 @@ public class GraphInfoServiceImpl extends ServiceImpl<GraphInfoMapper, GraphInfo
     implements GraphInfoService{
 
 }
-
-
-
-

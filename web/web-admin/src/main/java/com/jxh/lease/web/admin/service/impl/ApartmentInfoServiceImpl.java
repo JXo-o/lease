@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.jxh.lease.common.exception.LeaseException;
-import com.jxh.lease.common.result.Result;
 import com.jxh.lease.common.result.ResultCodeEnum;
 import com.jxh.lease.model.entity.*;
 import com.jxh.lease.model.enums.ItemType;
@@ -15,16 +14,12 @@ import com.jxh.lease.web.admin.vo.apartment.ApartmentDetailVo;
 import com.jxh.lease.web.admin.vo.apartment.ApartmentItemVo;
 import com.jxh.lease.web.admin.vo.apartment.ApartmentQueryVo;
 import com.jxh.lease.web.admin.vo.apartment.ApartmentSubmitVo;
-import com.jxh.lease.web.admin.vo.fee.FeeValueVo;
 import com.jxh.lease.web.admin.vo.graph.GraphVo;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, ApartmentInfo>
@@ -181,7 +176,3 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
     }
 
 }
-
-
-
-

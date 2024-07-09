@@ -7,7 +7,6 @@ import com.jxh.lease.web.admin.service.ViewAppointmentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jxh.lease.web.admin.vo.appointment.AppointmentQueryVo;
 import com.jxh.lease.web.admin.vo.appointment.AppointmentVo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,7 +24,3 @@ public class ViewAppointmentServiceImpl extends ServiceImpl<ViewAppointmentMappe
         return viewAppointmentMapper.pageAppointmentByQuery(appointmentVoPage, queryVo);
     }
 }
-
-
-
-

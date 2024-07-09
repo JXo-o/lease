@@ -11,7 +11,3 @@ public class PaymentTypeServiceImpl extends ServiceImpl<PaymentTypeMapper, Payme
     implements PaymentTypeService{
 
 }
-
-
-
-

@@ -11,7 +11,3 @@ public class ApartmentFacilityServiceImpl extends ServiceImpl<ApartmentFacilityM
     implements ApartmentFacilityService{
 
 }
-
-
-
-

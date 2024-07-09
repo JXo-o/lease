@@ -11,7 +11,3 @@ public class ProvinceInfoServiceImpl extends ServiceImpl<ProvinceInfoMapper, Pro
     implements ProvinceInfoService{
 
 }
-
-
-
-

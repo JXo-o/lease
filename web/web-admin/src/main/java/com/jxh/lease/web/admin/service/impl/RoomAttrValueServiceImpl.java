@@ -11,7 +11,3 @@ public class RoomAttrValueServiceImpl extends ServiceImpl<RoomAttrValueMapper, R
     implements RoomAttrValueService{
 
 }
-
-
-
-

@@ -9,6 +9,12 @@ spring:
       url: jdbc:mysql://101.35.211.252:3306/lease
       username: root
       password: JX@010208
+  data:
+    redis:
+      host: 101.35.211.252
+      port: 6379
+      database: 0
+      password: JX@010208
   jackson:
     time-zone: GMT+8
 
@@ -26,3 +32,7 @@ minio:
 
 springdoc:
   default-flat-param-object: true
+
+jwt:
+  expiration: 3600s
+  sign-key: psoEkv6hx5Sc72L00iIBSxlYZSteHyg3

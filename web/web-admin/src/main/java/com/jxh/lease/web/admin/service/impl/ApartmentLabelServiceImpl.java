@@ -11,7 +11,3 @@ public class ApartmentLabelServiceImpl extends ServiceImpl<ApartmentLabelMapper,
     implements ApartmentLabelService{
 
 }
-
-
-
-

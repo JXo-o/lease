@@ -11,7 +11,3 @@ public class AttrValueServiceImpl extends ServiceImpl<AttrValueMapper, AttrValue
     implements AttrValueService{
 
 }
-
-
-
-

@@ -1,7 +1,6 @@
 package com.jxh.lease.web.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.jxh.lease.model.entity.AttrKey;
 import com.jxh.lease.model.entity.AttrValue;
 import com.jxh.lease.web.admin.mapper.AttrKeyMapper;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class AttrKeyServiceImpl extends ServiceImpl<AttrKeyMapper, AttrKey>
@@ -52,7 +50,3 @@ public class AttrKeyServiceImpl extends ServiceImpl<AttrKeyMapper, AttrKey>
         attrValueMapper.deleteByIds(idList);
     }
 }
-
-
-
-

@@ -11,7 +11,3 @@ public class RoomLeaseTermServiceImpl extends ServiceImpl<RoomLeaseTermMapper, R
     implements RoomLeaseTermService{
 
 }
-
-
-
-

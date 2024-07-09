@@ -2,6 +2,7 @@ package com.jxh.lease;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * ClassName: AdminWebApplication
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0
  * @date 2024/7/4 16:28
  */
+@EnableScheduling
 @SpringBootApplication
 public class AdminWebApplication {
     public static void main(String[] args) {

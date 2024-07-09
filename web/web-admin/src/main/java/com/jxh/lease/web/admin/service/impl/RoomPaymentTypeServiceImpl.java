@@ -11,7 +11,3 @@ public class RoomPaymentTypeServiceImpl extends ServiceImpl<RoomPaymentTypeMappe
     implements RoomPaymentTypeService{
 
 }
-
-
-
-

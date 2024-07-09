@@ -1,6 +1,7 @@
 package com.jxh.lease.web.admin.controller.login;
 
 import com.jxh.lease.common.result.Result;
+import com.jxh.lease.web.admin.service.LoginService;
 import com.jxh.lease.web.admin.vo.login.CaptchaVo;
 import com.jxh.lease.web.admin.vo.login.LoginVo;
 import com.jxh.lease.web.admin.vo.system.user.SystemUserInfoVo;
@@ -13,21 +14,27 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/admin")
 public class LoginController {
 
+    private final LoginService loginService;
+
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
+    }
+
     @Operation(summary = "获取图形验证码")
     @GetMapping("login/captcha")
     public Result<CaptchaVo> getCaptcha() {
-        return Result.ok();
+        return Result.ok(loginService.getCaptchaVo());
     }
 
     @Operation(summary = "登录")
     @PostMapping("login")
     public Result<String> login(@RequestBody LoginVo loginVo) {
-        return Result.ok();
+        return Result.ok(loginService.login(loginVo));
     }
 
     @Operation(summary = "获取登陆用户个人信息")
     @GetMapping("info")
     public Result<SystemUserInfoVo> info() {
-        return Result.ok();
+        return Result.ok(loginService.getSystemUserInfo());
     }
 }
