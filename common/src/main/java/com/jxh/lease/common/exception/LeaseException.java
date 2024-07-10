@@ -2,7 +2,6 @@ package com.jxh.lease.common.exception;
 
 import com.jxh.lease.common.result.ResultCodeEnum;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * ClassName: LeaseException

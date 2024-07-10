@@ -1,10 +1,9 @@
 package com.jxh.lease.common.utils.jwt;
 
-import com.jxh.lease.common.exception.LeaseException;
 import com.jxh.lease.common.result.ResultCodeEnum;
+import com.jxh.lease.common.exception.LeaseException;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import jakarta.annotation.PostConstruct;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 

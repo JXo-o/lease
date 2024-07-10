@@ -2,9 +2,6 @@ package com.jxh.lease.common.result;
 
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 全局统一返回结果类
  */

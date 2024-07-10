@@ -1,7 +1,7 @@
 package com.jxh.lease.model.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.jxh.lease.model.enums.BaseStatus;
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.jxh.lease.model.enums.SystemUserType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

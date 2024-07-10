@@ -1,7 +1,6 @@
 package com.jxh.lease.web.admin.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jxh.lease.model.entity.RoomInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jxh.lease.web.admin.vo.room.RoomDetailVo;

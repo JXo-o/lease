@@ -1,7 +1,6 @@
 package com.jxh.lease.web.admin.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.jxh.lease.common.result.Result;
 import com.jxh.lease.model.entity.ApartmentInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jxh.lease.web.admin.vo.apartment.ApartmentDetailVo;
