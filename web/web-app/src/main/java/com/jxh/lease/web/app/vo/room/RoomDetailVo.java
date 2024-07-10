@@ -6,12 +6,18 @@ import com.jxh.lease.web.app.vo.attr.AttrValueVo;
 import com.jxh.lease.web.app.vo.fee.FeeValueVo;
 import com.jxh.lease.web.app.vo.graph.GraphVo;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@Builder
 @Schema(description = "APP房间详情")
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoomDetailVo extends RoomInfo {
 
     @Schema(description = "所属公寓信息")

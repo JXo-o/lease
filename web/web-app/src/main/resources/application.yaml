@@ -1,5 +1,5 @@
 server:
-  port: 9988
+  port: 9999
 
 spring:
   datasource:
@@ -36,3 +36,9 @@ springdoc:
 jwt:
   expiration: 3600s
   sign-key: psoEkv6hx5Sc72L00iIBSxlYZSteHyg3
+
+aliyun:
+  sms:
+    access-key-id:
+    access-key-secret:
+    endpoint:

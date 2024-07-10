@@ -5,13 +5,19 @@ import com.jxh.lease.model.entity.FacilityInfo;
 import com.jxh.lease.model.entity.LabelInfo;
 import com.jxh.lease.web.app.vo.graph.GraphVo;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Data
+@Builder
 @Schema(description = "APP端公寓信息详情")
+@NoArgsConstructor
+@AllArgsConstructor
 public class ApartmentDetailVo extends ApartmentInfo {
 
     @Schema(description = "图片列表")

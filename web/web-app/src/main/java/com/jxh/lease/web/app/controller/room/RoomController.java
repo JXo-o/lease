@@ -1,7 +1,9 @@
 package com.jxh.lease.web.app.controller.room;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jxh.lease.common.result.Result;
+import com.jxh.lease.web.app.service.RoomInfoService;
 import com.jxh.lease.web.app.vo.room.RoomDetailVo;
 import com.jxh.lease.web.app.vo.room.RoomItemVo;
 import com.jxh.lease.web.app.vo.room.RoomQueryVo;
@@ -18,21 +20,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/app/room")
 public class RoomController {
 
+    private final RoomInfoService roomInfoService;
+
+    public RoomController(RoomInfoService roomInfoService) {
+        this.roomInfoService = roomInfoService;
+    }
+
     @Operation(summary = "分页查询房间列表")
     @GetMapping("pageItem")
     public Result<IPage<RoomItemVo>> pageItem(@RequestParam long current, @RequestParam long size, RoomQueryVo queryVo) {
-        return Result.ok();
+        IPage<RoomItemVo> page = new Page<>(current, size);
+        IPage<RoomItemVo> list = roomInfoService.pageRoomItemByQuery(page, queryVo);
+        return Result.ok(list);
     }
 
     @Operation(summary = "根据id获取房间的详细信息")
     @GetMapping("getDetailById")
     public Result<RoomDetailVo> getDetailById(@RequestParam Long id) {
-        return Result.ok();
+        return Result.ok(roomInfoService.getDetailById(id));
     }
 
     @Operation(summary = "根据公寓id分页查询房间列表")
     @GetMapping("pageItemByApartmentId")
     public Result<IPage<RoomItemVo>> pageItemByApartmentId(@RequestParam long current, @RequestParam long size, @RequestParam Long id) {
-        return Result.ok();
+        return Result.ok(roomInfoService.pageItemByApartmentId(new Page<>(current, size), id));
     }
 }

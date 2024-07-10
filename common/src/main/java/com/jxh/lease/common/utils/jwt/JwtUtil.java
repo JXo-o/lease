@@ -4,6 +4,7 @@ import com.jxh.lease.common.result.ResultCodeEnum;
 import com.jxh.lease.common.exception.LeaseException;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ import java.util.Date;
 
 /**
  * ClassName: JwtUtil
- * Package: com.jxh.lease.common.utils
+ * Package: com.jxh.lease.common.utils.jwt
  * Description:
  *
  * @author JX
@@ -21,6 +22,7 @@ import java.util.Date;
  */
 @Component
 @EnableConfigurationProperties(JwtProperties.class)
+@ConditionalOnProperty(prefix = "jwt", name = "signKey")
 public class JwtUtil {
 
     private final SecretKey tokenSignKey;

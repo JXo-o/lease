@@ -3,12 +3,18 @@ package com.jxh.lease.web.app.vo.agreement;
 import com.jxh.lease.model.entity.LeaseAgreement;
 import com.jxh.lease.web.app.vo.graph.GraphVo;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
+@Builder
 @Schema(description = "租约详细信息")
+@NoArgsConstructor
+@AllArgsConstructor
 public class AgreementDetailVo extends LeaseAgreement {
 
     @Schema(description = "公寓名称")
