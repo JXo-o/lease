@@ -4,7 +4,6 @@ import com.jxh.lease.model.enums.BaseStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.jxh.lease.web.app.custom.config;
 
-import com.jxh.lease.web.app.custom.converter.StringToBaseEnumConverterFactory;
+import com.jxh.lease.common.converter.StringToBaseEnumConverterFactory;
 import com.jxh.lease.web.app.custom.interceptor.AuthenticationInterceptor;
 import lombok.NonNull;
 import org.springframework.context.annotation.Configuration;

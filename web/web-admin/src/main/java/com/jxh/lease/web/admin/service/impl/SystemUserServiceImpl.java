@@ -18,7 +18,10 @@ public class SystemUserServiceImpl extends ServiceImpl<SystemUserMapper, SystemU
     private final SystemUserMapper systemUserMapper;
     private final SystemPostMapper systemPostMapper;
 
-    public SystemUserServiceImpl(SystemUserMapper systemUserMapper, SystemPostMapper systemPostMapper) {
+    public SystemUserServiceImpl(
+            SystemUserMapper systemUserMapper,
+            SystemPostMapper systemPostMapper
+    ) {
         this.systemUserMapper = systemUserMapper;
         this.systemPostMapper = systemPostMapper;
     }

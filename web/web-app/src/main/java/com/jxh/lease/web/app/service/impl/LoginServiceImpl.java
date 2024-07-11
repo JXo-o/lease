@@ -83,7 +83,7 @@ public class LoginServiceImpl implements LoginService {
 
         UserInfo userInfo = userInfoService.lambdaQuery()
                 .eq(UserInfo::getPhone, loginVo.getPhone())
-                .getEntity();
+                .one();
 
         if (userInfo == null) {
             UserInfo newUser = UserInfo.builder()

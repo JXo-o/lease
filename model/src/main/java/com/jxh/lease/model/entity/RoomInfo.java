@@ -4,10 +4,7 @@ import com.jxh.lease.model.enums.ReleaseStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.math.BigDecimal;
@@ -15,9 +12,6 @@ import java.math.BigDecimal;
 @Schema(description = "房间信息表")
 @TableName(value = "room_info")
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class RoomInfo extends BaseEntity {
 
     @Serial

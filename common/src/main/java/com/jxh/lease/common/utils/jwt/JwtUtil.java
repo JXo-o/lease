@@ -22,7 +22,7 @@ import java.util.Date;
  */
 @Component
 @EnableConfigurationProperties(JwtProperties.class)
-@ConditionalOnProperty(prefix = "jwt", name = "signKey")
+@ConditionalOnProperty(prefix = "jwt", name = "sign-key")
 public class JwtUtil {
 
     private final SecretKey tokenSignKey;

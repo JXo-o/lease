@@ -1,4 +1,4 @@
-package com.jxh.lease.web.app.custom.converter;
+package com.jxh.lease.common.converter;
 
 import com.jxh.lease.model.enums.BaseEnum;
 import lombok.NonNull;
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 
 /**
  * ClassName: StringToBaseEnumConverterFactory
- * Package: com.jxh.lease.web.app.custom.converter
+ * Package: com.jxh.lease.common.converter
  * Description:
  *
  * @author JX
  * @version 1.0
- * @date 2024/7/10 23:54
+ * @date 2024/7/11 10:40
  */
 @Component
 public class StringToBaseEnumConverterFactory implements ConverterFactory<String, BaseEnum> {

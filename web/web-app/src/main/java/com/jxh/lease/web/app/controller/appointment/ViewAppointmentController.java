@@ -26,6 +26,7 @@ public class ViewAppointmentController {
     @Operation(summary = "保存或更新看房预约")
     @PostMapping("/saveOrUpdate")
     public Result<?> saveOrUpdate(@RequestBody ViewAppointment viewAppointment) {
+        System.out.println(viewAppointment);
         viewAppointment.setUserId(LoginUserHolder.getLoginUser().getUserId());
         viewAppointmentService.saveOrUpdate(viewAppointment);
         return Result.ok();
