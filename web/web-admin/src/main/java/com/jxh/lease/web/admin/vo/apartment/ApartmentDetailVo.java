@@ -1,6 +1,5 @@
 package com.jxh.lease.web.admin.vo.apartment;
 
-
 import com.jxh.lease.model.entity.ApartmentInfo;
 import com.jxh.lease.model.entity.FacilityInfo;
 import com.jxh.lease.model.entity.LabelInfo;

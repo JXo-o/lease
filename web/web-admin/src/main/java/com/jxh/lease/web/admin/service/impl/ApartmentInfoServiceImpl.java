@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.jxh.lease.common.exception.LeaseException;
+import com.jxh.lease.common.redis.RedisConstant;
 import com.jxh.lease.common.result.ResultCodeEnum;
 import com.jxh.lease.model.entity.*;
 import com.jxh.lease.model.enums.ItemType;
@@ -16,10 +17,12 @@ import com.jxh.lease.web.admin.vo.apartment.ApartmentQueryVo;
 import com.jxh.lease.web.admin.vo.apartment.ApartmentSubmitVo;
 import com.jxh.lease.web.admin.vo.graph.GraphVo;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, ApartmentInfo>
@@ -35,6 +38,7 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
     private final ApartmentFeeValueService apartmentFeeValueService;
     private final ApartmentLabelService apartmentLabelService;
     private final GraphInfoService graphInfoService;
+    private final RedisTemplate<String, Object> stringObjectRedisTemplate;
 
     public ApartmentInfoServiceImpl(
             ApartmentInfoMapper apartmentInfoMapper,
@@ -46,7 +50,8 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
             ApartmentFacilityService apartmentFacilityService,
             ApartmentFeeValueService apartmentFeeValueService,
             ApartmentLabelService apartmentLabelService,
-            GraphInfoService graphInfoService
+            GraphInfoService graphInfoService,
+            RedisTemplate<String, Object> stringObjectRedisTemplate
     ) {
         this.apartmentInfoMapper = apartmentInfoMapper;
         this.graphInfoMapper = graphInfoMapper;
@@ -58,6 +63,7 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
         this.apartmentFeeValueService = apartmentFeeValueService;
         this.apartmentLabelService = apartmentLabelService;
         this.graphInfoService = graphInfoService;
+        this.stringObjectRedisTemplate = stringObjectRedisTemplate;
     }
 
     @Override
@@ -69,6 +75,7 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
 
         if (isUpdate) {
             this.removeRelatedInfo(apartmentSubmitVo.getId());
+            stringObjectRedisTemplate.delete(RedisConstant.APP_APARTMENT_PREFIX + apartmentSubmitVo.getId());
         }
 
         List<GraphVo> graphVoList = apartmentSubmitVo.getGraphVoList();
@@ -156,6 +163,7 @@ public class ApartmentInfoServiceImpl extends ServiceImpl<ApartmentInfoMapper, A
 
         super.removeById(id);
         this.removeRelatedInfo(id);
+        stringObjectRedisTemplate.delete(RedisConstant.APP_APARTMENT_PREFIX + id);
     }
 
     @Transactional

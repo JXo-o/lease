@@ -6,12 +6,12 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://101.35.211.252:3306/lease
+      url: jdbc:mysql://172.31.19.154:3306/lease
       username: root
       password: JX@010208
   data:
     redis:
-      host: 101.35.211.252
+      host: 172.31.19.154
       port: 6379
       database: 0
       password: JX@010208
@@ -25,7 +25,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 minio:
-  endpoint: http://101.35.211.252:9000
+  endpoint: http://172.31.19.154:9000
   access-key: JXX
   secret-key: JX@010208
   bucket-name: lease

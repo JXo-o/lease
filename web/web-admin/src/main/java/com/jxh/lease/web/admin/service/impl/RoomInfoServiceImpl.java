@@ -1,6 +1,7 @@
 package com.jxh.lease.web.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.jxh.lease.common.redis.RedisConstant;
 import com.jxh.lease.model.entity.*;
 import com.jxh.lease.model.enums.ItemType;
 import com.jxh.lease.web.admin.mapper.*;
@@ -12,6 +13,7 @@ import com.jxh.lease.web.admin.vo.room.RoomItemVo;
 import com.jxh.lease.web.admin.vo.room.RoomQueryVo;
 import com.jxh.lease.web.admin.vo.room.RoomSubmitVo;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -36,6 +38,7 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
     private final RoomLabelService roomLabelService;
     private final RoomLeaseTermService roomLeaseTermService;
     private final RoomPaymentTypeService roomPaymentTypeService;
+    private final RedisTemplate<String, Object> stringObjectRedisTemplate;
 
     public RoomInfoServiceImpl(
             ApartmentInfoMapper apartmentInfoMapper,
@@ -51,7 +54,8 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
             RoomFacilityService roomFacilityService,
             RoomLabelService roomLabelService,
             RoomLeaseTermService roomLeaseTermService,
-            RoomPaymentTypeService roomPaymentTypeService
+            RoomPaymentTypeService roomPaymentTypeService,
+            RedisTemplate<String, Object> stringObjectRedisTemplate
     ) {
         this.apartmentInfoMapper = apartmentInfoMapper;
         this.labelInfoMapper = labelInfoMapper;
@@ -67,6 +71,7 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
         this.roomLabelService = roomLabelService;
         this.roomLeaseTermService = roomLeaseTermService;
         this.roomPaymentTypeService = roomPaymentTypeService;
+        this.stringObjectRedisTemplate = stringObjectRedisTemplate;
     }
 
     /**
@@ -83,6 +88,7 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
 
         if (isUpdate) {
             removeRelatedInfo(roomSubmitVo.getId());
+            stringObjectRedisTemplate.delete(RedisConstant.APP_ROOM_PREFIX + roomSubmitVo.getId());
         }
 
         List<GraphVo> graphVoList = roomSubmitVo.getGraphVoList();
@@ -177,12 +183,15 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
     }
 
     @Override
+    @Transactional
     public void removeRoomById(Long id) {
         super.removeById(id);
         removeRelatedInfo(id);
+        stringObjectRedisTemplate.delete(RedisConstant.APP_ROOM_PREFIX + id);
     }
 
-    private void removeRelatedInfo(Long id) {
+    @Transactional
+    public void removeRelatedInfo(Long id) {
         graphInfoService.lambdaUpdate()
                 .eq(GraphInfo::getItemType, ItemType.ROOM)
                 .eq(GraphInfo::getItemId, id)

@@ -1,6 +1,7 @@
 package com.jxh.lease.web.admin.controller.lease;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jxh.lease.common.redis.RedisConstant;
 import com.jxh.lease.common.result.Result;
 import com.jxh.lease.model.entity.LeaseAgreement;
 import com.jxh.lease.model.enums.LeaseStatus;
@@ -10,23 +11,32 @@ import com.jxh.lease.web.admin.vo.agreement.AgreementVo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "租约管理")
 @RestController
+@Transactional
 @RequestMapping("/admin/agreement")
 public class LeaseAgreementController {
 
     private final LeaseAgreementService leaseAgreementService;
+    private final RedisTemplate<String, Object> stringObjectRedisTemplate;
 
-    public LeaseAgreementController(LeaseAgreementService leaseAgreementService) {
+    public LeaseAgreementController(
+            LeaseAgreementService leaseAgreementService,
+            RedisTemplate<String, Object> stringObjectRedisTemplate
+    ) {
         this.leaseAgreementService = leaseAgreementService;
+        this.stringObjectRedisTemplate = stringObjectRedisTemplate;
     }
 
     @Operation(summary = "保存或修改租约信息")
     @PostMapping("saveOrUpdate")
     public Result<?> saveOrUpdate(@RequestBody LeaseAgreement leaseAgreement) {
         leaseAgreementService.saveOrUpdate(leaseAgreement);
+        stringObjectRedisTemplate.delete(RedisConstant.APP_AGREEMENT_PREFIX + leaseAgreement.getId());
         return Result.ok();
     }
 
@@ -48,6 +58,7 @@ public class LeaseAgreementController {
         leaseAgreementService.lambdaUpdate()
                 .eq(LeaseAgreement::getId, id)
                 .remove();
+        stringObjectRedisTemplate.delete(RedisConstant.APP_AGREEMENT_PREFIX + id);
         return Result.ok();
     }
 
@@ -66,6 +77,7 @@ public class LeaseAgreementController {
                 .set(LeaseAgreement::getStatus, status)
                 .eq(LeaseAgreement::getId, id)
                 .update(new LeaseAgreement());
+        stringObjectRedisTemplate.delete(RedisConstant.APP_AGREEMENT_PREFIX + id);
         return Result.ok();
     }
 

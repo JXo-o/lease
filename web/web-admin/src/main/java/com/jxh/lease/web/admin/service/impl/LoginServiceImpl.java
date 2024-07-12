@@ -1,6 +1,6 @@
 package com.jxh.lease.web.admin.service.impl;
 
-import com.jxh.lease.common.constant.RedisConstant;
+import com.jxh.lease.common.redis.RedisConstant;
 import com.jxh.lease.common.exception.LeaseException;
 import com.jxh.lease.common.login.LoginUser;
 import com.jxh.lease.common.login.LoginUserHolder;

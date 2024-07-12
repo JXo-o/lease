@@ -1,7 +1,6 @@
 package com.jxh.lease.web.app.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.jxh.lease.common.constant.RedisConstant;
+import com.jxh.lease.common.redis.RedisConstant;
 import com.jxh.lease.common.exception.LeaseException;
 import com.jxh.lease.common.result.ResultCodeEnum;
 import com.jxh.lease.common.utils.VerifyCodeUtil;

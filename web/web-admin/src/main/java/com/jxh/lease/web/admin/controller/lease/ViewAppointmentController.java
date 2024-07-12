@@ -1,6 +1,7 @@
 package com.jxh.lease.web.admin.controller.lease;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jxh.lease.common.redis.RedisConstant;
 import com.jxh.lease.common.result.Result;
 import com.jxh.lease.model.entity.ViewAppointment;
 import com.jxh.lease.model.enums.AppointmentStatus;
@@ -10,6 +11,7 @@ import com.jxh.lease.web.admin.vo.appointment.AppointmentVo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "预约看房管理")
@@ -18,9 +20,14 @@ import org.springframework.web.bind.annotation.*;
 public class ViewAppointmentController {
 
     private final ViewAppointmentService viewAppointmentService;
+    private final RedisTemplate<String, Object> stringObjectRedisTemplate;
 
-    public ViewAppointmentController(ViewAppointmentService viewAppointmentService) {
+    public ViewAppointmentController(
+            ViewAppointmentService viewAppointmentService,
+            RedisTemplate<String, Object> stringObjectRedisTemplate
+    ) {
         this.viewAppointmentService = viewAppointmentService;
+        this.stringObjectRedisTemplate = stringObjectRedisTemplate;
     }
 
     @Operation(summary = "分页查询预约信息")
@@ -36,6 +43,7 @@ public class ViewAppointmentController {
                 .set(ViewAppointment::getAppointmentStatus, status)
                 .eq(ViewAppointment::getId, id)
                 .update(new ViewAppointment());
+        stringObjectRedisTemplate.delete(RedisConstant.APP_APPOINTMENT_PREFIX + id);
         return Result.ok();
     }
 

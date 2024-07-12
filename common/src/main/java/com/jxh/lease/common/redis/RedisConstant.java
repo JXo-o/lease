@@ -1,4 +1,4 @@
-package com.jxh.lease.common.constant;
+package com.jxh.lease.common.redis;
 
 /**
  * ClassName: RedisConstant
@@ -17,5 +17,9 @@ public class RedisConstant {
     public static final Integer APP_LOGIN_CODE_RESEND_TIME_SEC = 60;
     public static final Integer APP_LOGIN_CODE_TTL_SEC = 60 * 10;
     public static final String APP_ROOM_PREFIX = "app:room:";
+    public static final String APP_APARTMENT_PREFIX = "app:apartment:";
+    public static final String APP_APPOINTMENT_PREFIX = "app:appointment:";
+    public static final String APP_AGREEMENT_PREFIX = "app:agreement:";
+    public static final Integer DEFAULT_EXPIRE_TIME = 60 * 30;
 
 }
